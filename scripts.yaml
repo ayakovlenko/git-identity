@@ -1,0 +1,3 @@
+scripts:
+  i:
+    cmd: deno install -f --allow-net=raw.githubusercontent.com --allow-read main.ts
