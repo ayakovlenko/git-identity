@@ -1,3 +1,9 @@
 scripts:
   i:
     cmd: deno install -f --allow-net=raw.githubusercontent.com --allow-read main.ts
+  update-readme:
+    cmd: ./scripts/update_readme.ts
+    allow:
+      read: README.md
+      write: README.md
+      run: git
