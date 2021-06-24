@@ -8,6 +8,8 @@ export class Config {
   }
 }
 
+export const config = new Config({});
+
 export class User {
   constructor(public readonly name: string, public readonly email: string) {}
 }
