@@ -2,6 +2,8 @@
 
 [![vr scripts](https://badges.velociraptor.run/flat.svg)](https://velociraptor.run)
 
+## config
+
 Example of a minimal config:
 
 ```typescript
@@ -27,7 +29,11 @@ towards writing a valid config. Full config definition can be found by following
 the import URL.
 
 This style of configuration is almost identical with
-[`zit`](https://github.com/ayakovlenko/zit) config files:
+[`zit`](https://github.com/ayakovlenko/zit) config files.
+
+That being said, there are several styles of configs you can choose from:
+
+## TypeScript, `Config` object
 
 ```typescript
 // config.ts
@@ -51,6 +57,8 @@ export default new Config({
   },
 });
 ```
+
+## TypeScript, `config` instance
 
 Another option is to export an empty `config` instance. Such config files end up
 being more flat:
@@ -85,6 +93,8 @@ config["gitlab.com"] = {
 export default config;
 ```
 
+## JavaScript
+
 If you want the config to be minimal yet still the power of JS, this works, too:
 
 ```javascript
@@ -114,7 +124,7 @@ export default {
 };
 ```
 
-If you are a monk, JSON also works:
+## JSON
 
 ```jsonc
 // config.json
@@ -143,7 +153,11 @@ If you are a monk, JSON also works:
 }
 ```
 
-And YAML, too (no judgement):
+## YAML
+
+Note that for YAML, configuration must reside under `hosts` property. This is so
+that host configuration is not mixed with any additional properties you might
+want to use to define variables.
 
 ```yaml
 # config.yaml (or config.yml)
@@ -159,7 +173,6 @@ users:
       name: JD42
       email: 786972-JD42@users.noreply.gitlab.com
 
-# note that for YAML, configuration must reside under `hosts`
 hosts:
   github.com:
     default: *personal_github_user
