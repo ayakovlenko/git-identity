@@ -1,5 +1,15 @@
-const path = Deno.args[0]
+import { Config } from "./config.ts";
+import { ensureEnv } from "./util.ts";
 
-const { config } = await import(path);
+const configPath = ensureEnv("GIT_ID_CONFIG");
 
-console.log(JSON.stringify(config, null, 2));
+const main = async () => {
+  const config = await loadConfig(configPath);
+  console.log(JSON.stringify(config, null, 2));
+};
+
+const loadConfig = async (path: string): Promise<Config> => {
+  return await import(path);
+};
+
+await main();
