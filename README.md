@@ -9,7 +9,7 @@ Example of a minimal config:
 ```typescript
 import {
   Config,
-} from "https://raw.githubusercontent.com/ayakovlenko/git-identity/v0.2.0/config.ts";
+} from "https://raw.githubusercontent.com/ayakovlenko/git-identity/v0.3.0/config.ts";
 
 export default new Config({});
 ```
@@ -19,7 +19,7 @@ Or:
 ```typescript
 import {
   config,
-} from "https://raw.githubusercontent.com/ayakovlenko/git-identity/v0.2.0/config.ts";
+} from "https://raw.githubusercontent.com/ayakovlenko/git-identity/v0.3.0/config.ts";
 
 export default config;
 ```
@@ -40,7 +40,7 @@ That being said, there are several styles of configs you can choose from:
 import {
   Config,
   User,
-} from "https://raw.githubusercontent.com/ayakovlenko/git-identity/v0.2.0/config.ts";
+} from "https://raw.githubusercontent.com/ayakovlenko/git-identity/v0.3.0/config.ts";
 
 const personal = new User("JD42", "JD42@users.noreply.github.com");
 const work = new User("John Doe", "john.doe@corp.com");
@@ -68,7 +68,7 @@ being more flat:
 import {
   config,
   User,
-} from "https://raw.githubusercontent.com/ayakovlenko/git-identity/v0.2.0/config.ts";
+} from "https://raw.githubusercontent.com/ayakovlenko/git-identity/v0.3.0/config.ts";
 
 const personal = {
   github: new User("JD42", "JD42@users.noreply.github.com"),
