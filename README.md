@@ -85,9 +85,10 @@ config["gitlab.com"] = {
 export default config;
 ```
 
-If you want the config to be super minimal, JS also works:
+If you want the config to be minimal yet still the power of JS, this works, too:
 
 ```javascript
+// config.js
 export default {
   "github.com": {
     "default": {
@@ -113,7 +114,7 @@ export default {
 };
 ```
 
-JSON also works:
+If you are a monk, JSON also works:
 
 ```jsonc
 // config.json
