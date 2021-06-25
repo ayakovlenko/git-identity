@@ -35,7 +35,7 @@ const overrideSchema: ajv.Schema = {
   ],
 };
 
-export default instance.compile({
+const configSchema: ajv.Schema = {
   type: "object",
   additionalProperties: {
     type: "object",
@@ -47,4 +47,6 @@ export default instance.compile({
       },
     },
   },
-});
+};
+
+export default instance.compile(configSchema);
