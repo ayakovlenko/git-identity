@@ -2,7 +2,7 @@
 
 [![vr scripts](https://badges.velociraptor.run/flat.svg)](https://velociraptor.run)
 
-## config
+## Configuration
 
 Example of a minimal config:
 
@@ -33,7 +33,7 @@ This style of configuration is almost identical with
 
 That being said, there are several styles of configs you can choose from:
 
-## TypeScript, `Config` object
+### TypeScript, `Config` object
 
 ```typescript
 // config.ts
@@ -58,7 +58,7 @@ export default new Config({
 });
 ```
 
-## TypeScript, `config` instance
+### TypeScript, `config` instance
 
 Another option is to export an empty `config` instance. Such config files end up
 being more flat:
@@ -93,7 +93,7 @@ config["gitlab.com"] = {
 export default config;
 ```
 
-## JavaScript
+### JavaScript
 
 If you want the config to be minimal yet still the power of JS, this works, too:
 
@@ -124,7 +124,7 @@ export default {
 };
 ```
 
-## JSON
+### JSON
 
 ```jsonc
 // config.json
@@ -153,7 +153,7 @@ export default {
 }
 ```
 
-## YAML
+### YAML
 
 Note that for YAML, configuration must reside under `hosts` property. This is so
 that host configuration is not mixed with any additional properties you might
