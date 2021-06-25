@@ -1,6 +1,6 @@
 scripts:
   i:
-    cmd: deno install -f --allow-net=raw.githubusercontent.com --allow-read main.ts
+    cmd: deno install -f --allow-net=raw.githubusercontent.com --allow-env=GIT_ID_CONFIG --allow-read main.ts
   update-readme:
     cmd: ./scripts/update_readme.ts
     allow:
