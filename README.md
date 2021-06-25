@@ -158,6 +158,7 @@ users:
       name: JD42
       email: 786972-JD42@users.noreply.gitlab.com
 
+# note that for YAML, configuration must reside under `hosts`
 hosts:
   github.com:
     default: *personal_github_user
