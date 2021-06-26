@@ -1,17 +1,13 @@
-import * as git from "https://raw.githubusercontent.com/ayakovlenko/deno-git/v0.3.0/mod.ts";
-
-const { stdout } = await git.run([
-  "describe",
-  "--abbrev=0",
-  "--tags",
-]);
-
-const latestTag = stdout.trim();
+const latestTag = Deno.args[0];
+if (!latestTag) {
+  console.error("tag missing");
+  Deno.exit(1);
+}
 
 const readme = Deno.readTextFileSync("README.md");
 
 const updatedReadme = readme.replaceAll(
-  /git-identity\/.*\//g,
+  /git-identity\/.*?\//g,
   `git-identity/${latestTag}/`,
 );
 
