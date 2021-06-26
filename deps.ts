@@ -11,3 +11,10 @@ export { Command };
 
 import * as git from "https://raw.githubusercontent.com/ayakovlenko/deno-git/v0.3.0/mod.ts";
 export { git };
+
+import {
+  Either,
+  either,
+} from "https://deno.land/x/functionality@v0.2.3/mod.ts";
+export { either };
+export type { Either };

@@ -199,3 +199,9 @@ hosts:
 ```
 
 </details>
+
+## Differences from `zit`
+
+- Better name
+- TS/JS/JSON/YAML configuration vs. Jsonnet
+- No default config
