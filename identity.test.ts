@@ -13,7 +13,6 @@ Deno.test("no config defined for host", () => {
   };
 
   const want = either.left("no config defined for github.com");
-
   const have = find(config, repoInfo);
 
   assertEquals(have, want);
@@ -38,7 +37,80 @@ Deno.test("choose default config", () => {
   };
 
   const want = either.right(user);
+  const have = find(config, repoInfo);
 
+  assertEquals(have, want);
+});
+
+Deno.test("choose override by owner", () => {
+  const defaultUser = {
+    name: "Jane Doe",
+    email: "jane.doe@gmail.com",
+  };
+
+  const corpUser = {
+    name: "Jane Doe",
+    email: "jane.doe@corp.com",
+  };
+
+  const config = new Config({
+    "github.com": {
+      default: defaultUser,
+      overrides: [
+        {
+          owner: "corp",
+          user: corpUser,
+        },
+      ],
+    },
+  });
+
+  const repoInfo: RepoInfo = {
+    host: "github.com",
+    owner: "corp",
+    name: "opensource",
+  };
+
+  const want = either.right(corpUser);
+  const have = find(config, repoInfo);
+
+  assertEquals(have, want);
+});
+
+Deno.test("choose override by repo and owner", () => {
+  const personalUser = {
+    name: "Jane Doe",
+    email: "jane.doe@gmail.com",
+  };
+
+  const corpUser = {
+    name: "Jane Doe",
+    email: "jane.doe@corp.com",
+  };
+
+  const config = new Config({
+    "github.com": {
+      overrides: [
+        {
+          owner: personalUser.name,
+          user: personalUser,
+        },
+        {
+          owner: "corp",
+          repo: "opensource",
+          user: corpUser,
+        },
+      ],
+    },
+  });
+
+  const repoInfo: RepoInfo = {
+    host: "github.com",
+    owner: "corp",
+    name: "opensource",
+  };
+
+  const want = either.right(corpUser);
   const have = find(config, repoInfo);
 
   assertEquals(have, want);
